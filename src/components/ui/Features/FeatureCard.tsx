@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
-import React from "react";
+"use client";
 
-const FeatureCard = ({ feature }) => {
+import { motion } from "framer-motion";
+import { FeatureItem } from "@/lib/data";
+
+const FeatureCard = ({ feature }: { feature: FeatureItem }) => {
   const { id, img, heading, desc } = feature;
   return (
     <motion.div
-      layout="position" // MUCH lighter than full layout
+      layout="position"
       initial={{
         scale: 0.95,
         y: 30,
@@ -21,7 +23,7 @@ const FeatureCard = ({ feature }) => {
         once: true,
       }}
       whileHover={{
-        scale: 1.03, // use transform instead of padding
+        scale: 1.03,
       }}
       transition={{
         duration: 0.6,
@@ -34,7 +36,7 @@ const FeatureCard = ({ feature }) => {
         <img className="size-full object-contain" src={img} alt={heading} />
       </div>
       <div className="card-details px-5 md:px-3 pb-2 flex flex-col gap-2">
-        <h4 className="text-xl sm:text-2xl font-bold  text-[var(--text-heading)]">
+        <h4 className="text-xl sm:text-2xl font-bold text-[var(--text-heading)]">
           {heading}
         </h4>
         <p className="text-sm transition-all duration-200 text-[var(--text-body)]">

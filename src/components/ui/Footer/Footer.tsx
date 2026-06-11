@@ -1,7 +1,7 @@
-import React from "react";
-import { footerLinks } from "../../../data";
+"use client";
+
+import { footerLinks } from "@/lib/data";
 import Container from "../Container";
-import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -55,7 +55,7 @@ const Footer = () => {
               }}
               className="text-[var(--text-body)] md:w-3/5 md:text-sm lg:w-4/5"
             >
-              Plan smarter, work faster, and focus on what truly matters.
+              賢く計画し、速く働き、本当に大切なことに集中する。
             </motion.h6>
           </div>
           <div className="links flex justify-between md:gap-6 lg:gap-16">
@@ -81,11 +81,12 @@ const Footer = () => {
                 }}
                 className="font-medium text-lg"
               >
-                Products
+                プロダクト
               </motion.h4>
               <div className="flex flex-col gap-2">
                 {footerLinks.slice(0, 3).map((link, i) => (
                   <motion.div
+                    key={i}
                     initial={{
                       opacity: 0,
                       x: -10,
@@ -106,15 +107,12 @@ const Footer = () => {
                       delay: i * 0.25,
                     }}
                   >
-                    <Link
+                    <a
                       className="cursor-pointer text-[var(--text-muted)] transition-all duration-300 hover:text-[var(--text-body)] text-sm lg:text-sm"
-                      key={i}
-                      to={link.href}
-                      smooth={true}
-                      duration={500}
+                      href={link.href.startsWith("/") ? link.href : `#${link.href}`}
                     >
                       {link.text}
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
               </div>
@@ -138,15 +136,15 @@ const Footer = () => {
                 transition={{
                   duration: 0.45,
                   ease: "easeOut",
-                  // delay: 1,
                 }}
                 className="font-medium text-lg"
               >
-                Legal
+                法的情報
               </motion.h4>
               <div className="flex flex-col gap-2">
                 {footerLinks.slice(3).map((link, i) => (
                   <motion.div
+                    key={i}
                     initial={{
                       opacity: 0,
                       x: -10,
@@ -167,13 +165,12 @@ const Footer = () => {
                       delay: i * 0.3,
                     }}
                   >
-                    <Link
+                    <a
                       className="cursor-pointer text-[var(--text-muted)] transition-all duration-300 hover:text-[var(--text-body)] text-sm lg:text-sm"
-                      key={i}
-                      href={link.href}
+                      href={link.href.startsWith("/") ? link.href : `#${link.href}`}
                     >
                       {link.text}
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
               </div>
@@ -199,7 +196,7 @@ const Footer = () => {
             }}
             className="text-sm text-[var(--text-muted)]"
           >
-            © 2026 Thinkly. All rights reserved.
+            © 2026 Thinkly. 全著作権所有。
           </motion.p>
         </div>
       </footer>

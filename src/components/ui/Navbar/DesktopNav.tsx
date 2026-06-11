@@ -1,7 +1,7 @@
-import React from "react";
+"use client";
+
 import Button from "../Button";
-import { Link } from "react-scroll";
-import { desktopNavLinks } from "../../../data";
+import { desktopNavLinks } from "@/lib/data";
 import { motion } from "framer-motion";
 
 const DesktopNav = () => {
@@ -49,17 +49,18 @@ const DesktopNav = () => {
               className="group h-5 overflow-hidden"
             >
               <div className="flex flex-col transition-all duration-300 group-hover:-translate-y-5">
-                <Link className="cursor-pointer" to={link.href}>
-                  {link.text}
-                </Link>
-                <Link
+                <a
                   className="cursor-pointer"
-                  to={link.href}
-                  smooth={true}
-                  duration={(i + 1) * 300}
+                  href={link.link === "#" ? "#" : `#${link.link}`}
                 >
                   {link.text}
-                </Link>
+                </a>
+                <a
+                  className="cursor-pointer"
+                  href={link.link === "#" ? "#" : `#${link.link}`}
+                >
+                  {link.text}
+                </a>
               </div>
             </motion.li>
           ))}
@@ -82,7 +83,7 @@ const DesktopNav = () => {
               className={
                 "shadow-[0_3px_10px_rgb(0,0,0,0.2)] text-[var(--text-invert)] hover:bg-[var(--hover-primary)]"
               }
-              text={"Get Started"}
+              text={"今すぐ始める"}
             />
           </motion.li>
         </ul>

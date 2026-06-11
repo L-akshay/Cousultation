@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import React from "react";
+"use client";
 
-const WorkCard = ({ work }) => {
+import { motion } from "framer-motion";
+import { WorkItem } from "@/lib/data";
+
+const WorkCard = ({ work }: { work: WorkItem }) => {
   const { no, img, heading, desc } = work;
   return (
     <motion.div
@@ -35,7 +37,7 @@ const WorkCard = ({ work }) => {
           <div className="bg-[var(--text-heading)] text-[var(--text-invert)] rounded-full size-6 flex items-center justify-center text-sm font-semibold shadow">
             <p>{no}</p>
           </div>
-          <h4 className="text-xl md:text-2xl font-bold  text-[var(--text-heading)]">
+          <h4 className="text-xl md:text-2xl font-bold text-[var(--text-heading)]">
             {heading}
           </h4>
         </div>

@@ -1,7 +1,8 @@
+"use client";
+
 import { Menu, X } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../Button";
-import { Link } from "react-scroll";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,46 +27,47 @@ const MobileNav = () => {
         >
           <ul className="flex flex-col gap-4 text-[var(--text-body)] h-full">
             <li>
-              <Link className="cursor-pointer block py-2" to="#">
-                Home
-              </Link>
+              <a
+                className="cursor-pointer block py-2"
+                href="#"
+                onClick={() => setIsOpen(false)}
+              >
+                ホーム
+              </a>
             </li>
             <li>
-              <Link
-                to="features"
-                smooth={true}
-                duration={500}
+              <a
+                href="#features"
                 className="cursor-pointer block py-2"
+                onClick={() => setIsOpen(false)}
               >
-                Features
-              </Link>
+                機能
+              </a>
             </li>
             <li>
-              <Link
+              <a
                 className="cursor-pointer block py-2"
-                to="howitworks"
-                smooth={true}
-                duration={500}
+                href="#howitworks"
+                onClick={() => setIsOpen(false)}
               >
-                How it Works
-              </Link>
+                使い方
+              </a>
             </li>
             <li>
-              <Link
+              <a
                 className="cursor-pointer block py-2"
-                to="pricing"
-                smooth={true}
-                duration={500}
+                href="#pricing"
+                onClick={() => setIsOpen(false)}
               >
-                Pricing
-              </Link>
+                料金プラン
+              </a>
             </li>
             <li>
               <Button
                 className={
                   "shadow-[0_3px_10px_rgb(0,0,0,0.2)] text-[var(--text-invert)] hover:bg-[var(--hover-primary)]"
                 }
-                text={"Get Started"}
+                text={"今すぐ始める"}
               />
             </li>
           </ul>

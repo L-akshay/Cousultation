@@ -1,9 +1,10 @@
-import { motion } from "motion/react";
-import React from "react";
+"use client";
 
-const Heading = ({ title }) => {
+import { motion } from "framer-motion";
+
+const SubHeading = ({ subTitle }: { subTitle: string }) => {
   return (
-    <motion.h2
+    <motion.h6
       initial={{
         opacity: 0,
         y: 10,
@@ -20,12 +21,13 @@ const Heading = ({ title }) => {
       transition={{
         duration: 0.5,
         ease: "easeOut",
+        delay: 0.2,
       }}
-      className="text-3xl font-semibold text-[var(--text-heading)] md:text-5xl text-shadow"
+      className="text-[var(--text-body)] text-[clamp(14px,4vw,18px)]"
     >
-      {title}
-    </motion.h2>
+      {subTitle}
+    </motion.h6>
   );
 };
 
-export default Heading;
+export default SubHeading;
