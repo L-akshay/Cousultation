@@ -65,12 +65,31 @@ nav .part2 {
   cursor: pointer;
 }
 
-.part2 button {
+.part1 a,
+.part2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.part2 a:hover h3 {
+  color: #6b6b6b;
+}
+
+.part2 button,
+.part2 .quote-btn {
   padding: 10px 25px;
   border-radius: 8px;
   font-weight: 550;
   border: 1.9px solid #000;
   cursor: pointer;
+  display: inline-block;
+  background-color: transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.part2 .quote-btn:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .center {
@@ -256,25 +275,42 @@ nav .part2 {
 }
 .contact {
   background-color: #ebeaea;
-  padding: 0px 80px;
+  padding: 64px 80px;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
   position: relative;
   margin-bottom: 40px;
 }
 .contact-element {
-  width: 35%;
+  width: 48%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 .contact-element h2 {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
   line-height: 1.35;
+}
+.contact-element p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+}
+.contact-img {
+  width: 44%;
+  display: flex;
+  justify-content: flex-end;
+}
+.contact-img img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
 }
 
 #caseStudy-section {
